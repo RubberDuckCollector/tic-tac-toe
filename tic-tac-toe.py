@@ -10,19 +10,12 @@ def game():
         | {game[1][0]} | {game[1][1]} | {game[1][2]} |
         | {game[2][0]} | {game[2][1]} | {game[2][2]} |""")
 
-    def x_move():
-        print("X move")
+    def move(team):
+        print(f"{team} move")
         column = int(input("enter the column you would like to make your move on (0, 1, 2): "))
         row = int(input("enter the row you would like to make your move on (0, 1, 2): "))
 
-        game[row][column] = "X"
-    
-    def o_move():
-        print("O move")
-        column = int(input("enter the column you would like to make your move on (0, 1, 2): "))
-        row = int(input("enter the row you would like to make your move on (0, 1, 2): "))
-
-        game[row][column] = "O"
+        game[row][column] = team
     
     def check_for_win(team):
 
@@ -44,7 +37,7 @@ def game():
 
         print_game()
         
-        x_move()
+        move("X")
 
         winner = check_for_win("X")
         if winner is not None:
@@ -59,7 +52,7 @@ def game():
 
         print_game()
 
-        o_move()
+        move("O")
 
         winner = check_for_win("X")
         if winner is not None:
